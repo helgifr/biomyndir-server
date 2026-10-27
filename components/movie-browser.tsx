@@ -74,6 +74,10 @@ export function MovieBrowser({
     );
   }, [movies, theaters, disabledCinemas]);
 
+  const allDisabled =
+    theaters.length > 0 &&
+    theaters.every((cinema) => disabledCinemas.has(cinema.id));
+
   return (
     <div className="flex flex-col gap-8">
       <section>
@@ -100,10 +104,14 @@ export function MovieBrowser({
         </div>
         <button
           type="button"
-          onClick={() => persist(new Set(theaters.map((cinema) => cinema.id)))}
+          onClick={() =>
+            persist(
+              allDisabled ? new Set() : new Set(theaters.map((c) => c.id)),
+            )
+          }
           className="mt-3 cursor-pointer text-sm font-medium text-zinc-500 underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
-          Afvelja allt
+          {allDisabled ? "Velja allt" : "Afvelja allt"}
         </button>
       </section>
       <section className="flex flex-wrap gap-6">
