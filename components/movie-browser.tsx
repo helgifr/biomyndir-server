@@ -114,7 +114,7 @@ export function MovieBrowser({
           {allDisabled ? "Velja allt" : "Afvelja allt"}
         </button>
       </section>
-      <section className="flex flex-wrap gap-6">
+      <section className="flex flex-wrap gap-10 justify-center">
         {visibleMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
