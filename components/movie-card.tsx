@@ -27,7 +27,7 @@ export function MovieCard(props: MovieCardProps) {
         src={poster}
         alt={`Mynd fyrir bíómyndina ${movie.title}`}
         loading="lazy"
-        className="w-full flex-1 object-cover"
+        className="w-full flex-1 object-cover content-center"
       />
       <div className="flex flex-col gap-2 p-3">
         <p className="text-base font-medium">{movie.title}</p>
